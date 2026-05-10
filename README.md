@@ -1,267 +1,201 @@
-<p align="center">
-  <a href="https://getleon.ai"><img width="800" src="https://getleon.ai/img/hero-animation.gif" /></a>
-</p>
+🌌 Introduction
+Z.E.N.I.T.H is not just a chatbot; it is a distributed, high-performance desktop assistant architected to live on your machine and execute real-world tasks autonomously.
 
-<h1 align="center">
-  <a href="https://getleon.ai"><img width="96" src="https://getleon.ai/img/logo.svg" alt="Leon"></a><br>
-  Leon
-</h1>
+Powered by a local LLM brain and utilizing a high-speed Bun-powered sidecar within a Microservices framework, Z.E.N.I.T.H processes commands with zero latency. From face-authenticated system access to sending autonomous WhatsApp messages via native UI interaction, it bridges the gap between conversational AI and functional system execution.
 
-_<p align="center">Your open-source personal assistant.</p>_
+⚡ Core Philosophy & Architecture
+Speed. Security. Scalability.
 
-<p align="center">
-  <a href="https://github.com/leon-ai/leon/blob/develop/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?label=License&style=flat" /></a>
-  <a href="https://github.com/leon-ai/leon/blob/develop/.github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" /></a>
-  <br>
-  <a href="https://github.com/leon-ai/leon/actions/workflows/build.yml"><img src="https://github.com/leon-ai/leon/actions/workflows/build.yml/badge.svg?branch=develop" /></a>
-  <a href="https://github.com/leon-ai/leon/actions/workflows/tests.yml"><img src="https://github.com/leon-ai/leon/actions/workflows/tests.yml/badge.svg?branch=develop" /></a>
-  <a href="https://github.com/leon-ai/leon/actions/workflows/lint.yml"><img src="https://github.com/leon-ai/leon/actions/workflows/lint.yml/badge.svg?branch=develop" /></a>
-  <br>
-  <a href="https://discord.gg/MNQqqKg"><img src="https://svgshare.com/i/V09.svg"/></a>
-</p>
+Instead of building a monolithic script, Z.E.N.I.T.H is engineered as an event-driven network:
 
-<p align="center">
-  <a href="https://getleon.ai">Website</a> ::
-  <a href="https://docs.getleon.ai">Documentation</a> ::
-  <a href="http://roadmap.getleon.ai">Roadmap</a> ::
-  <a href="https://github.com/leon-ai/leon/blob/develop/.github/CONTRIBUTING.md">Contributing</a> ::
-  <a href="https://blog.getleon.ai/the-story-behind-leon/">Story</a>
-</p>
+The LLM Brain: The central processing node that understands natural language intent.
 
----
+The Sidecar Pattern: High-speed I/O operations and API handling are offloaded to a Bun runtime, ensuring the Python core never blocks.
 
-## Current State
+Microservices Integration: Built to easily hook into your existing Kafka or Redis event streams, allowing the AI to monitor background processes or trigger complex distributed workflows.
 
-### Why is there a small amount of contributors?
+Vision & Security: Leverages OpenCV for local face authentication before executing privileged desktop commands.
 
-I'm taking a lot of time to work on the new core of Leon due to personal reasons. I can only work on it after work and on weekends. Hence, **I'm blocking any potential contribution as the whole core of Leon is coming with many breaking changes**. Many of you are willing to contribute in Leon (create new skills, help to improve the core, translations and so on...), a big thanks to every one of you!
+🛠️ Key Capabilities
+🎙️ Voice & Text Modalities: Interact via seamless voice recognition or silent CLI text input.
 
-I wish one day I could work on Leon full time, but it's not possible at the moment as I need to pay my bills. I have some ideas about how to monetize Leon in the future (Leon's core will always remain open source), but before to get there there is still a long way to go.
+👁️ Face Authentication: Secure your assistant. Z.E.N.I.T.H verifies your identity using your webcam before running sensitive modules.
 
-Until then, any financial support by [sponsoring Leon](http://sponsor.getleon.ai) is much appreciated 🙂
+💬 Autonomous WhatsApp Module: Automatically resolves contact names to numbers, invokes the Windows Desktop URI scheme, and sends messages via PyAutoGUI without manual intervention.
 
-### How about large language models and Leon?
+🧩 Extensible Capabilities: Easily drop in new Python or Java modules into the modules/ directory to expand its skill set.
 
-Since AI gained in popularity and large language models are getting more and more traction, many of you joined our community. A huge welcome to all of you! 🤗
+🚀 Getting Started
+Prerequisites
+Ensure your system meets the following requirements:
 
-At the moment, Leon's NLU will remain intents first with his own model without relying on an LLM. It is important that Leon can run 100% offline and I'm confident that with the downsizing techniques such as quantization Leon will sooner or later work with LLMs at his core and still be able to run on edge.
+Python >= 3.10
 
-Here is how LLMs may help Leon in the future:
+Bun (for sidecar execution)
 
-- Intent fallback: when an utterance cannot match an intent, then rely on an LLM to provide results.
-- New named entity recognition engine: provide a better solution to extract entities from utterances such as fruits, numbers, cities, durations, persons, etc.
-- Skill features: let skills leverage LLMs to provide out-of-the-box NLP features such as summarization, translation, sentiment analysis and so on...
-- Skill building: LLMs can help to develop skills such as paraphrasing utterance samples, translate answers, convert code from our Python bridge to the upcoming JavaScript bridge and vice versa, etc.
-- More...
+A webcam (if using the --auth flag)
 
-### What's Next?
+WhatsApp Desktop App installed (for the messaging module)
 
-Once the new core released, we'll work on the community aspect of Leon. For example, better organize [our Discord](https://discord.gg/MNQqqKg), planify regular calls, work on skills together, etc. It is very important for Leon to have a real community. At that moment, the skills platform will already be online, so it'll be easier to sync our progress and publish new skills.
+Installation
+Bash
+# Clone the repository
+git clone https://github.com/yourusername/zenith-ai.git
+cd zenith-ai
 
-- Feel free to check out the Git development branches and our [next major milestones](https://blog.getleon.ai/a-much-better-nlp-and-future-1-0-0-beta-7/#whats-next).
-- And the [detailed roadmap](http://roadmap.getleon.ai).
-- Many exciting things are coming up, hence no new documentation and test are going to be written until the official release of Leon.
+# Install Python dependencies
+pip install -r requirements.txt
 
----
+# Install Bun sidecar dependencies
+cd sidecar
+bun install
+cd ..
+Configuration
+Create a contacts.json file in your modules/ directory to map names to phone numbers for the messaging module:
 
-## Latest Release
+JSON
+{
+  "karthik": "+919876543210",
+  "prasad": "+911234567890"
+}
+Usage
+Z.E.N.I.T.H offers multiple boot modes depending on your environment:
 
-Check out the [latest release blog post](https://blog.getleon.ai/binaries-and-typescript-rewrite-1-0-0-beta-8/).
+Bash
+# Normal mode (Face Authentication + Voice Interface)
+python zenith.py
 
-<a href="https://blog.getleon.ai/binaries-and-typescript-rewrite-1-0-0-beta-8/"><img width="400" src="https://blog.getleon.ai/static/a0d1cbafd1968e7531dc17e229f8cc61/aa440/beta-8.png" /></a>
+# Quick mode (Skip face authentication)
+python zenith.py --no-auth
 
----
+# Stealth mode (Text input only, no microphone)
+python zenith.py --text
 
-## 👋 Introduction
+# Developer mode (Text input, no auth, verbose logging)
+python zenith.py --text --no-auth --debug
+🧭 Roadmap
+The vision for Z.E.N.I.T.H is continually expanding. Current milestones include:
 
-**Leon** is an **open-source personal assistant** who can live **on your server**.
+[x] Initial LLM Brain integration
 
-He **does stuff** when you **ask him to**.
+[x] Local Face Authentication using OpenCV
 
-You can **talk to him** and he can **talk to you**.
-You can also **text him** and he can also **text you**.
-If you want to, Leon can communicate with you by being **offline to protect your privacy**.
+[x] WhatsApp Desktop automation via URI & PyAutoGUI
 
-### Why?
+[ ] Migrate heavy I/O operations to the Bun sidecar
 
-> 1. If you are a developer (or not), you may want to build many things that could help in your daily life.
->    Instead of building a dedicated project for each of those ideas, Leon can help you with his
->    Skills structure.
-> 2. With this generic structure, everyone can create their own skills and share them with others.
->    Therefore there is only one core (to rule them all).
-> 3. Leon uses AI concepts, which is cool.
-> 4. Privacy matters, you can configure Leon to talk with him offline. You can already text with him without any third party services.
-> 5. Open source is great.
+[ ] Establish an Event-Driven architecture (Kafka/Redis) for background task monitoring
 
-### What is this repository for?
+[ ] Advanced Micro-Expression Analyzer integration
 
-> This repository contains the following nodes of Leon:
->
-> - The server
-> - Skills
-> - The web app
-> - The hotword node
-> - The TCP server (for inter-process communication between Leon and third-party nodes such as spaCy)
-> - The Python bridge (the connector between the core and skills made with Python)
+🤝 Contributing
+Contributions are welcome! Whether it's adding a new module, optimizing the Bun sidecar, or refining the intent extraction, your help makes Z.E.N.I.T.H better.
 
-### What is Leon able to do?
+Fork the project.
 
-> Today, the most interesting part is about his core and the way he can scale up. He is pretty young but can easily scale to have new features (skills).
-> You can find what he is able to do by browsing the [skills list](https://github.com/leon-ai/leon/tree/develop/skills).<br>
-> Please do know that after the official release, we will build many skills along with the community. Feel free to [join us on Discord](https://discord.gg/MNQqqKg) to be part of the journey.
+Create your feature branch (git checkout -b feature/AmazingFeature).
 
-Sounds good to you? Then let's get started!
+Commit your changes (git commit -m 'Add some AmazingFeature').
 
-## ☁️ Try with a Single-Click
+Push to the branch (`git push origin feature/AmazingFeature
 
-Gitpod will automatically set up an environment and run an instance for you.
+Plaintext
+╔════════════════════════════════════════════════════════════════════╗
+║                      Z.E.N.I.T.H  AI  DAEMON                       ║
+║    Zero latency Engineered Network for Intuitive Task Handling     ║
+║                                                                    ║
+║                  Autonomous AI Desktop Assistant                   ║
+║  Face-Auth | LLM | Bun | Microservices | Sidecar-Driven | Modular  ║
+╚════════════════════════════════════════════════════════════════════╝
+Your autonomous, multimodal AI desktop daemon.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/leon-ai/leon)
+🌌 The Vision
+Z.E.N.I.T.H is not just a chatbot; it is a highly scalable, autonomous agentic network designed to live directly on your machine. Engineered with a zero-latency philosophy, it bridges the gap between natural language processing and actual native system execution.
 
-## 🚀 Getting Started
+Whether you are communicating via voice, requesting complex microservice orchestrations, or delegating repetitive tasks, ZENITH operates with full autonomy, secured by local facial authentication.
 
-### Prerequisites
+Core Philosophy
+True Autonomy: ZENITH doesn't just answer questions; it executes actions natively (like controlling local desktop apps, managing files, or sending messages) via a highly modular capability system.
 
-- [Node.js](https://nodejs.org/) >= 16
-- [npm](https://npmjs.com/) >= 8
-- Supported OSes: Linux, macOS and Windows
+Performance First: The core LLM "Brain" handles reasoning, while heavy I/O operations and high-speed scripts are offloaded to Bun-powered sidecars to guarantee zero latency.
 
-To install these prerequisites, you can follow the [How To section](https://docs.getleon.ai/how-to/) of the documentation.
+Distributed Architecture: Built on a microservices foundation, allowing seamless integration with message brokers (like Kafka), in-memory stores (Redis), and containerized deployments (Docker/Kubernetes).
 
-### Installation
+Privacy & Security: Features local Face Authentication via OpenCV. If it doesn't recognize you, it doesn't execute.
 
-```sh
-# Install the Leon CLI
-npm install --global @leon-ai/cli
+⚡ Technical Architecture
+ZENITH breaks away from monolithic assistant designs. It utilizes a Sidecar Pattern to isolate the cognitive load from the execution load.
 
-# Install Leon (stable branch)
-leon create birth
-# OR install from the develop branch: leon create birth --develop
-```
+The Brain (Python): Handles speech-to-text, LLM context management, intent extraction, and face authentication.
 
-### Usage
+The Nervous System (Microservices): Event-driven communication channels routing intents to the correct modules.
 
-```sh
-# Check the setup went well
-leon check
+The Hands (Bun & Node.js Sidecars): High-speed execution engines that interact with the OS, APIs, web scraping, and third-party apps (e.g., WhatsApp Desktop URI routing).
 
-# Run
-leon start
+🚀 Getting Started
+Prerequisites
+To run the ZENITH Daemon, your environment must be equipped with the following:
 
-# Go to http://localhost:1337
-# Hooray! Leon is running
-```
+Python >= 3.10
 
-### Docker Installation
+Bun (for executing JavaScript/TypeScript sidecar modules)
 
-```sh
-# Install Leon
-leon create birth --docker
+A webcam (for Face Authentication)
 
-# Run
-leon start
+Optional but recommended: Docker & Kubernetes for deploying isolated service modules.
 
-# Go to http://localhost:1337
-# Hooray! Leon is running
-```
+Installation
+Bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/zenith-ai.git
+cd zenith-ai
 
-## 📚 Documentation
+# 2. Install Python dependencies for the core Daemon
+pip install -r requirements.txt
 
-For full documentation, visit [docs.getleon.ai](https://docs.getleon.ai).
+# 3. Install dependencies for the Bun sidecars
+cd sidecars && bun install && cd ..
+Usage Modes
+ZENITH can be launched in multiple states depending on your current environment and privacy needs.
 
-## 📺 Video
+Bash
+# Standard Mode: Boots the daemon with Face Auth and Voice Listeners active
+python zenith.py
 
-[Watch a demo](https://www.youtube.com/watch?v=p7GRGiicO1c).
+# Dev Mode: Skips face authentication for rapid testing
+python zenith.py --no-auth
 
-## 🧭 Roadmap
+# Silent Mode: Accepts text input only (disables microphone and wakeword)
+python zenith.py --text
 
-To know what is going on, follow [roadmap.getleon.ai](http://roadmap.getleon.ai).
+# Headless Dev Mode: Text only, no authentication
+python zenith.py --text --no-auth
+🧠 Module Ecosystem (Capabilities)
+ZENITH's capabilities are highly modular. You can drop new logic into the network without rewriting the core.
 
-## ❤️ Contributing
+Current active modules include:
 
-If you have an idea for improving Leon, do not hesitate.
+System Operations: Launching apps, managing windows, hardware metrics.
 
-**Leon needs open source to live**, the more skills he has, the more skillful he becomes.
+Communication: Autonomous WhatsApp messaging via local desktop URI integration.
 
-## 📖 The Story Behind Leon
+DevOps: Spinning up Docker containers, checking Kubernetes cluster health.
 
-You'll find a write-up on this [blog post](https://blog.getleon.ai/the-story-behind-leon/).
+Vision: AI Micro-Expression analysis and user recognition.
 
-## 🔔 Stay Tuned
+🛠 Contributing & Expanding
+ZENITH is designed to grow. Because it utilizes an event-driven microservice architecture, you can write a module in Java, Python, or Go, containerize it, and have ZENITH's event bus trigger it.
 
-- [Twitter](https://twitter.com/grenlouis)
-- [Newsletter](https://newsletter.getleon.ai/subscription/form)
-- [Blog](https://blog.getleon.ai)
-- [GitHub issues](https://github.com/leon-ai/leon/issues)
-- [YouTube](https://www.youtube.com/channel/UCW6mk6j6nQUzFYY97r47emQ)
-- [#LeonAI](<https://twitter.com/search?f=live&q=%23LeonAI%20(from%3Agrenlouis%20OR%20from%3Alouistiti_fr)&src=typed_query>)
+To add a new capability:
 
-## 👨 Author
+Define the intent schema in the Brain.
 
-**Louis Grenard** ([@grenlouis](https://twitter.com/grenlouis))
+Create the execution logic in a Bun sidecar or a Python module.
 
-## 👍 Sponsors
+Register the capability in the Daemon's CAPABILITIES dictionary.
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle" width="128">
-        <a href="https://github.com/Appwrite">
-          <img src="https://github.com/Appwrite.png?size=128" />
-          Appwrite
-        </a><br>
-        <sub><sup>250 USD / month</sup></sub>
-      </td>
-      <td align="center" valign="middle" width="128">
-        <img src="https://getleon.ai/img/anonymous.svg" width="128" />
-        Anonymous
-        <br>
-        <sub><sup>100 USD / month</sup></sub>
-      </td>
-      <td align="center" valign="middle" width="128">
-        <a href="https://github.com/herbundkraut">
-          <img src="https://github.com/herbundkraut.png?size=128" />
-          herbundkraut
-        </a><br>
-        <sub><sup>10 USD / month</sup></sub>
-      </td>
-      <td align="center" valign="middle" width="128">
-      	<a href="http://sponsor.getleon.ai/">
-          You?
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+## 👨‍💻 Built By
 
-You can also contribute by [sponsoring Leon](http://sponsor.getleon.ai).
-
-Please note that I dedicate most of my free time to Leon.
-
-By sponsoring the project you make the project sustainable and faster to develop features.
-
-The focus is not only limited to the activity you see on GitHub but also a lot of thinking about the direction of the project. Which is naturally related to the overall design, architecture, vision, learning process and so on...
-
-### Special Thanks
-
-<a href="https://vercel.com/?utm_source=leon-ai&utm_campaign=oss">
-  <img src="https://i.imgur.com/S5olXWh.png" alt="Vercel" width="128" />
-</a>
-&nbsp; &nbsp; &nbsp;
-<a href="https://www.macstadium.com/">
-  <img src="https://getleon.ai/img/thanks/mac-stadium.svg" alt="MacStadium" width="128" />
-</a>
-&nbsp; &nbsp; &nbsp;
-<a href="https://www.aoz.studio">
-  <img src="https://getleon.ai/_next/image?url=%2Fimg%2Fthanks%2Faoz-studio.png&w=384&q=75" alt="AOZ Studio" width="128" />
-</a>
-
-## 📝 License
-
-[MIT License](https://github.com/leon-ai/leon/blob/develop/LICENSE.md)
-
-Copyright (c) 2019-present, Louis Grenard <louis@getleon.ai>
-
-## Cheers!
-
-![Cheers!](https://github.githubassets.com/images/icons/emoji/unicode/1f379.png 'Cheers!')
+Architected and engineered by **Team Zenith**:
+* **nnssprasad** 
+* **Manikanta**
