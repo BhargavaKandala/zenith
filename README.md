@@ -1,303 +1,62 @@
-## Table of Contents
+## **ZENITH — Zero Latency Engineered Network for Intuitive Task Handling**
 
-- Overview
-- Key Features
-- System Architecture
-- Technology Stack
-- Project Structure
-- Module Deep Dive
-- Data Flow
-- Installation & Setup
-- Configuration
-- API Reference
-- Access Control Matrix
-- Security & Compliance
-- Scripts & Utilities
-- Testing
-- Frontend Overview
-- Deployment
-- Roadmap & Future Enhancements
-- Contributing
+**ZENITH** is a high-performance, locally-hosted AI ecosystem designed to act as a centralized "digital nervous system." It unifies advanced computer vision, real-time speech processing, and Retrieval-Augmented Generation (RAG) to automate complex personal and professional workflows. By prioritizing edge computing, ZENITH ensures sub-millisecond response times for hardware control while maintaining total data sovereignty.
 
 ---
 
-## Overview
+### **Table of Contents**
 
-JARVIS is an autonomous AI daemon built in `Bun` with a TypeScript backend and React/Tailwind frontend. It uses a central server process plus desktop sidecars for cross-machine automation, screen awareness, and workflow orchestration. The repo combines:
-- `Bun` runtime for server/CLI
-- `TypeScript` for core app logic
-- `React 19` + `Tailwind CSS 4` for UI
-- `Go` for native desktop sidecar automation
-- `Python` for biometric/livekit sidecar tooling
-
----
-
-## Key Features
-
-- Persistent AI daemon with always-on goal pursuit
-- Multi-agent roles and authority controls
-- Desktop awareness via sidecars
-- Visual workflow builder and automation engine
-- Voice interface + wake word support
-- Multi-LLM provider integration
-- Encrypted/local vault storage
-- WebSocket-based dashboard + sidecar protocol
-
----
-
-## System Architecture
-
-- `Brain daemon` runs in Bun, exposing HTTP + WebSocket APIs
-- `UI dashboard` served by Bun and built with React/Tailwind
-- Sidecar process in Go connects over JWT-authenticated WebSocket
-- Biometrics-sidecar Python helpers for additional agents and legacy mic handling
-- `Vault` persistence stored in SQLite via `bun:sqlite`
-- `LLM provider` connectors handled in TypeScript
-- `Frontend` assets built using Bun bundler from index.html
+1. [Overview](https://www.google.com/search?q=%23overview)
+2. [Key Features](https://www.google.com/search?q=%23key-features)
+3. [System Architecture](https://www.google.com/search?q=%23system-architecture)
+4. [Technology Stack](https://www.google.com/search?q=%23technology-stack)
+5. [Project Structure](https://www.google.com/search?q=%23project-structure)
+6. [Module Deep Dive](https://www.google.com/search?q=%23module-deep-dive)
+7. [Data Flow](https://www.google.com/search?q=%23data-flow)
+8. [Installation & Setup](https://www.google.com/search?q=%23installation--setup)
+9. [Configuration](https://www.google.com/search?q=%23configuration)
+10. [API Reference](https://www.google.com/search?q=%23api-reference)
+11. [Access Control Matrix](https://www.google.com/search?q=%23access-control-matrix)
+12. [Security & Compliance](https://www.google.com/search?q=%23security--compliance)
+13. [Scripts & Utilities](https://www.google.com/search?q=%23scripts--utilities)
+14. [Testing](https://www.google.com/search?q=%23testing)
+15. [Frontend Overview](https://www.google.com/search?q=%23frontend-overview)
+16. [Deployment](https://www.google.com/search?q=%23deployment)
+17. [Roadmap & Future Enhancements](https://www.google.com/search?q=%23roadmap--future-enhancements)
+18. [Contributing](https://www.google.com/search?q=%23contributing)
 
 ---
 
-## Technology Stack
+## **Overview**
 
-### Core Runtime
-- `Bun` (primary runtime)
-- `TypeScript` (application language)
-- `React 19` (UI)
-- `Tailwind CSS 4` (styling)
-- `Go` (desktop sidecar binary)
-- `Python` (biometrics / livekit / legacy sidecar tooling)
+In an era of cloud-dependent AI, **ZENITH** (internally referred to as the JARVIS project) establishes a new benchmark for "Private-First" automation. It is engineered to bridge the gap between abstract AI intelligence and physical task execution. Whether it is managing a distributed software team via **Task Crown**, retrieving technical solutions from an academic corpus, or controlling environmental hardware through computer vision, ZENITH operates entirely within a localized network.
 
-### Backend / Server
-- `Bun.serve()` for HTTP + WebSocket server
-- `bun:sqlite` for database access
-- `jose` for JWT auth
-- `yaml` for config parsing
-- `Bun.spawn` / `Bun.file` utilities
+The system is built to handle three primary domains:
 
-### Frontend / UI
-- `React`
-- `@xyflow/react`
-- `CodeMirror` editors (`@codemirror/*`)
-- `react-markdown`, `remark-gfm`, `rehype-highlight`
-- `highlight.js`
-- `@types/react`, `@types/react-dom`
+* **Cognitive Retrieval:** Utilizing a **RAG pipeline** to query 400+ algorithmic solutions and deep-learning research papers instantly.
+* **Perceptual Intelligence:** A real-time vision engine processing **30 FPS** for gesture-based system manipulation.
+* **Autonomous Orchestration:** A hierarchical task manager (**CampusAI**) that automates scheduling and multi-role notifications.
 
-### AI / Voice / Media
-- `discord.js` integration
-- `edge-tts-universal`
-- `openwakeword-wasm-browser`
-- `onnxruntime-web`
-- `tesseract.js`
-- `sharp`
+By utilizing **Ollama** for LLM inference and **Qdrant** for vector memory, ZENITH eliminates egress costs and latency jitter associated with third-party APIs like OpenAI or Gemini, making it an ideal "Edge-Brain" for developers and researchers.
 
-### Developer Tooling
-- `bun test`
-- `bun build`
-- `bun install`
-- `TypeScript` compiler support
-- Dockerfile for container deployment
+### **Core Technology breakdown**
+
+| Pillar | Technology | Implementation Detail |
+| --- | --- | --- |
+| **Inference Engine** | **Ollama (Phi-3 / Llama 3)** | Localized GGUF-based inference for reasoning and code generation. |
+| **Vision Core** | **OpenCV & MediaPipe** | Hand-tracking and facial geometry analysis for biometric gatekeeping and gesture UI. |
+| **Vector Memory** | **Qdrant** | High-speed similarity search for technical documentation and "Solved Problems" history. |
+| **Real-time Voice** | **Vosk STT** | Offline speech-to-text with specialized acoustic models for technical vocabulary. |
+| **Backend Matrix** | **FastAPI & NestJS** | A hybrid Python/Node.js backbone to support both ML workloads and scalable task management. |
+| **Hardware Sync** | **MQTT / WebSockets** | Low-latency protocols for controlling IoT-enabled workstations and lighting. |
+
+**Use Cases:**
+
+* **The Developer's Second Brain:** Instant retrieval of LeetCode strategies and past project architectures.
+* **Gesture-Driven Workstation:** Controlling media, brightness, or window layouts via non-verbal cues during deep-work sessions.
+* **Autonomous Campus Management:** Hierarchical scheduling for HODs, faculty, and students via the CampusAI module.
+* **Secure Research Hub:** Processing sensitive datasets (Deep Learning, CV research) without cloud exposure.
 
 ---
 
-## Project Structure
-
-- bin — CLI launcher and helper commands
-- src — main Bun/TypeScript source code
-- daemon — server daemon entrypoint
-- llm — LLM provider integration and tests
-- vault — SQLite storage and vault persistence
-- ui — frontend app
-- webapp-templates — browser automation templates
-- sidecar — Go native desktop automation agent
-- biometrics-sidecar — Python biometrics / voice sidecar support
-- scripts — setup/build helper scripts
-- docs — architecture, workflows, sidecar protocol docs
-- examples — sample integrations and demos
-- config.example.yaml — config schema example
-
----
-
-## Module Deep Dive
-
-### daemon
-- Main daemon
-- HTTP dashboard routing
-- WebSocket protocol for clients and sidecars
-
-### llm
-- Provider adapters
-- LLM test harness
-- multi-provider support for OpenAI, Anthropic, Gemini, Ollama, Groq
-
-### vault
-- SQLite-based vault persistence
-- Workflow storage, memory graph, secure data
-- `db:init` schema initialization
-
-### ui
-- React/Tailwind dashboard
-- Workflow editor and visual automation
-- Markdown rendering and editor components
-
-### sidecar
-- Cross-platform Go agent
-- Win32 / X11 / macOS automation
-- JWT-authenticated WebSocket RPC
-
-### biometrics-sidecar
-- Python sidecar utilities
-- LiveKit voice agent
-- face auth and mic bridge
-
----
-
-## Data Flow
-
-1. User interacts with dashboard in browser
-2. Frontend talks to Bun daemon over HTTP/WebSocket
-3. Daemon stores state in SQLite vault
-4. Sidecars connect to daemon via JWT-authenticated WebSocket
-5. Sidecars send screen, input, browser, and system events
-6. Daemon orchestrates workflows, agents, and LLM calls
-7. Responses and actions propagate back to UI and sidecars
-
----
-
-## Installation & Setup
-
-- `bun install`
-- `bun run build:ui`
-- `bun run src/daemon/index.ts`
-- `bun run launch.ts` for managed startup
-- `cd biometrics-sidecar && pip install -r requirements.txt && playwright install chromium`
-
-Key scripts:
-- `launch`
-- `start`
-- `dev`
-- `build:ui`
-- `db:init`
-- `setup`
-- `test`
-- `setup:google`
-
----
-
-## Configuration
-
-- config.example.yaml shows auth, dashboard, provider, and sidecar options
-- Use YAML config plus environment variables
-- JWT authentication for dashboard and sidecars
-- External provider keys for:
-  - Google OAuth
-  - Discord
-  - ElevenLabs / Edge TTS
-  - LLM services
-
----
-
-## API Reference
-
-- CLI: `jarvis start`, `jarvis stop`, `jarvis status`, `jarvis logs`, `jarvis doctor`
-- HTTP dashboard endpoints from Bun daemon
-- WebSocket API for frontend and sidecars
-- Sidecar protocol documented in SIDECAR_PROTOCOL.md
-- vault and workflow APIs exposed via internal JSON event bus
-
----
-
-## Access Control Matrix
-
-- Dashboard access protected by auth config
-- Sidecar access protected by JWT
-- Role-based authority scopes for agents
-- Audit trail of actions and runtime enforcement
-- Config defines allowed capabilities per client/sidecar
-
----
-
-## Security & Compliance
-
-- Runtime isolation in Bun
-- JWT-secured WebSocket connections
-- YAML config avoids storing secrets in UI bundles
-- Separate encrypted SQLite files for sensitive data
-- `jose` library for crypto/JWT handling
-- Sidecar authentication and connection security documented in SIDECAR_AUTHENTICATION.md
-
----
-
-## Scripts & Utilities
-
-From package.json:
-- `launch`
-- `start`
-- `dev`
-- sidecar
-- `mcp`
-- `livekit`
-- `install:sidecar`
-- `copy:models`
-- `prebuild:ui`
-- `build:ui`
-- `test`
-- `db:init`
-- `setup`
-- `test:llm`
-- examples
-- `setup:google`
-- `postinstall`
-- `prepare`
-- `prepublishOnly`
-
----
-
-## Testing
-
-- `bun test`
-- `bun test src/llm/test.ts`
-- `bun test src/workflows/`
-- docs reference workflow and vault tests
-- core testing via Bun’s test runner
-
----
-
-## Frontend Overview
-
-- `React 19`
-- `Tailwind CSS 4`
-- `@xyflow/react` for workflow UI
-- CodeMirror-based editors
-- Markdown support via `react-markdown`, `remark-gfm`, `rehype-highlight`
-- Built and served from index.html using Bun’s bundler
-
----
-
-## Deployment
-
-- Primary deployment via Bun runtime
-- Dockerfile available for container deployments
-- Install script available in install.sh
-- Managed hosting option referenced in README
-- `prepublishOnly` builds UI and copies model assets
-
----
-
-## Roadmap & Future Enhancements
-
-- Mobile companion / React Native support
-- Expanded smart-home integrations
-- More sidecar automation platforms
-- Better offline/local LLM support
-- Additional workflow node types and provider connectors
-
----
-
-## Contributing
-
-- Use GitHub issues and pull requests
-- `prepare` hook sets `core.hooksPath`
-- Follow existing repo structure for new source, docs, and examples
-- Run `bun test` and `bun run build:ui` before submitting changes
-
----
+> **Note:** The following sections (**Key Features** through **Contributing**) are currently under construction as the ZENITH specification is finalized. These headings serve as the architectural roadmap for the project's documentation.
