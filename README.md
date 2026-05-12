@@ -1,15 +1,3 @@
-Checking the repository metadata and existing README to summarize the tech stack accurately.
-
-Read [](file:///c%3A/Users/BHARGAVA/Documents/GitHub/zenith/package.json)
-
-Read [](file:///c%3A/Users/BHARGAVA/Documents/GitHub/zenith/README.md#1-1), lines 1 to 200
-
-I’ve identified core stack clues from package.json; next I’m verifying runtime languages and auxiliary tooling across the repo.
-
-Searched for regex `Bun\.|bun\s|type\s*:\s*module|react|tailwind|go\.mod|python|sqlite|WebSocket|openwakeword|discord\.js` (`**/*.{ts,js,md,go,py,yaml,yml,json}`), 200 results
-
-Read [](file:///c%3A/Users/BHARGAVA/Documents/GitHub/zenith/tsconfig.json)
-
 ## Table of Contents
 
 - Overview
@@ -313,5 +301,3 @@ From package.json:
 - Run `bun test` and `bun run build:ui` before submitting changes
 
 ---
-
-This gives you the repo’s full stack and structure in README-ready form.
