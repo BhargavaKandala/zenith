@@ -1,0 +1,94 @@
+## **ZENITH — Zero Latency Engineered Network for Intuitive Task Handling**
+
+**ZENITH** is a high-performance, locally-hosted AI ecosystem designed to act as a centralized "digital nervous system." It unifies advanced computer vision, real-time speech processing, and Retrieval-Augmented Generation (RAG) to automate complex personal and professional workflows. By prioritizing edge computing, ZENITH ensures sub-millisecond response times for hardware control while maintaining total data sovereignty.
+
+---
+
+### **Table of Contents**
+
+1. [Overview](https://www.google.com/search?q=%23overview)
+2. [Key Features](https://www.google.com/search?q=%23key-features)
+3. [System Architecture](https://www.google.com/search?q=%23system-architecture)
+4. [Technology Stack](https://www.google.com/search?q=%23technology-stack)
+5. [Project Structure](https://www.google.com/search?q=%23project-structure)
+6. [Module Deep Dive](https://www.google.com/search?q=%23module-deep-dive)
+7. [Data Flow](https://www.google.com/search?q=%23data-flow)
+8. [Installation & Setup](https://www.google.com/search?q=%23installation--setup)
+9. [Configuration](https://www.google.com/search?q=%23configuration)
+10. [API Reference](https://www.google.com/search?q=%23api-reference)
+11. [Access Control Matrix](https://www.google.com/search?q=%23access-control-matrix)
+12. [Security & Compliance](https://www.google.com/search?q=%23security--compliance)
+13. [Scripts & Utilities](https://www.google.com/search?q=%23scripts--utilities)
+14. [Testing](https://www.google.com/search?q=%23testing)
+15. [Frontend Overview](https://www.google.com/search?q=%23frontend-overview)
+16. [Deployment](https://www.google.com/search?q=%23deployment)
+17. [Roadmap & Future Enhancements](https://www.google.com/search?q=%23roadmap--future-enhancements)
+18. [Contributing](https://www.google.com/search?q=%23contributing)
+
+---
+
+## **Overview**
+
+In an era of cloud-dependent AI, **ZENITH** (internally referred to as the JARVIS project) establishes a new benchmark for "Private-First" automation. It is engineered to bridge the gap between abstract AI intelligence and physical task execution. Whether it is managing a distributed software team via **Task Crown**, retrieving technical solutions from an academic corpus, or controlling environmental hardware through computer vision, ZENITH operates entirely within a localized network.
+
+The system is built to handle three primary domains:
+
+* **Cognitive Retrieval:** Utilizing a **RAG pipeline** to query 400+ algorithmic solutions and deep-learning research papers instantly.
+* **Perceptual Intelligence:** A real-time vision engine processing **30 FPS** for gesture-based system manipulation.
+* **Autonomous Orchestration:** A hierarchical task manager (**CampusAI**) that automates scheduling and multi-role notifications.
+
+By utilizing **Ollama** for LLM inference and **Qdrant** for vector memory, ZENITH eliminates egress costs and latency jitter associated with third-party APIs like OpenAI or Gemini, making it an ideal "Edge-Brain" for developers and researchers.
+
+### **Core Technology breakdown**
+
+| Pillar | Technology | Implementation Detail |
+| --- | --- | --- |
+| **Inference Engine** | **Ollama (Phi-3 / Llama 3)** | Localized GGUF-based inference for reasoning and code generation. |
+| **Vision Core** | **OpenCV & MediaPipe** | Hand-tracking and facial geometry analysis for biometric gatekeeping and gesture UI. |
+| **Vector Memory** | **Qdrant** | High-speed similarity search for technical documentation and "Solved Problems" history. |
+| **Real-time Voice** | **Vosk STT** | Offline speech-to-text with specialized acoustic models for technical vocabulary. |
+| **Backend Matrix** | **FastAPI & NestJS** | A hybrid Python/Node.js backbone to support both ML workloads and scalable task management. |
+| **Hardware Sync** | **MQTT / WebSockets** | Low-latency protocols for controlling IoT-enabled workstations and lighting. |
+
+**Use Cases:**
+
+* **The Developer's Second Brain:** Instant retrieval of LeetCode strategies and past project architectures.
+* **Gesture-Driven Workstation:** Controlling media, brightness, or window layouts via non-verbal cues during deep-work sessions.
+* **Autonomous Campus Management:** Hierarchical scheduling for HODs, faculty, and students via the CampusAI module.
+* **Secure Research Hub:** Processing sensitive datasets (Deep Learning, CV research) without cloud exposure.
+
+---
+## **Key Features**
+
+ZENITH is engineered with a modular philosophy, bifurcating its capabilities into **Perceptual Intelligence** (Vision/Speech) and **Cognitive Automation** (RAG/Task Logic). Below are the primary technical features that define the ZENITH ecosystem.
+
+### **1. Core AI & Cognitive Retrieval**
+
+* **Context-Aware RAG Pipeline:** Leverages `sentence-transformers` to embed technical documentation, research papers, and the "Solved Problems" database into a **Qdrant** vector store. This allows for semantic retrieval of complex algorithmic solutions with high precision.
+* **Solved Problems Integration:** A specialized retrieval layer dedicated to the user's history of 400+ solved competitive programming problems (LeetCode, CodeChef, GFK), providing instant code snippets and logic explanations based on previous successful implementations.
+* **Anti-Hallucination Grounding:** A strict system-prompting architecture within the `PromptBuilder` that enforces LLM responses to be derived *only* from retrieved local context, returning "Insufficient Data" rather than inventing technical specifications.
+* **History-Aware Re-Ranking:** Implements a sliding-window memory that boosts the relevance of document chunks overlapping with the last three turns of conversation, ensuring cohesive technical debugging sessions.
+
+### **2. Perceptual Intelligence (Vision & Voice)**
+
+* **Real-Time Gesture Control Engine:** A high-frequency **OpenCV + MediaPipe** pipeline processing at **30 FPS**. It maps hand landmarks to system commands (e.g., volume modulation, window switching, or IoT toggle) without requiring physical peripheral input.
+* **Low-Latency Speech-to-Text (STT):** Uses a localized **Vosk** engine for zero-egress voice processing. It includes a custom acoustic model tuned for technical vocabulary and developer jargon.
+* **Biometric Gatekeeping:** Integrated facial geometry recognition to ensure that sensitive admin panels (Audit Logs, User Management) are only accessible via physical presence verification.
+
+### **3. Autonomous Orchestration (CampusAI & Task Crown)**
+
+* **Hierarchical Task Management:** A multi-role orchestration system (**CampusAI**) designed for educational environments. It handles automated notifications and scheduling for HODs, Faculty, and Students using a **NestJS** backend.
+* **Team Orchestration (Task Crown):** A real-time collaboration tool built with **TypeScript** and **Node.js** that manages task lifecycles, automated status reports, and deadline tracking for engineering teams.
+* **Cross-Document Multi-Hop Retrieval:** When a query identifies a specific entity (e.g., an Employee ID or Project Code), the engine performs a recursive second-pass retrieval across disparate documents to build a complete profile of the subject.
+
+### **4. Security, Access & Sovereignty**
+
+* **Enterprise-Grade RBAC:** A hierarchical Role-Based Access Control model (`Employee` → `Manager` → `CEO` → `Admin`). Document-level security is enforced at the database level using Qdrant payload filtering, ensuring users never see chunks above their clearance.
+* **Zero-Trust Offline Architecture:** Designed for air-gapped environments. No data—voice, images, or text—is ever transmitted to external APIs (OpenAI/Anthropic). All inference is handled locally via **Ollama**.
+* **Immutable Audit Logging:** Every interaction, from a gesture command to a RAG query, is recorded in an append-only **SQLite** audit table, providing a transparent trail for compliance and debugging.
+
+### **5. Performance & UX**
+
+* **Typewriter UI Rendering:** A custom **React** component that streams responses with a terminal-style typewriter effect, including collapsed page-range citations (e.g., `algo_specs.pdf · pp. 12-14`).
+* **Hybrid Cache System:** Utilizes **Redis** to cache both common query results and vector embeddings, reducing the computational load on the local GPU for repeated technical inquiries.
+* **3D Landing Visualizer:** A **Three.js** (React-Three-Fiber) landing scene that provides a visual representation of the neural network's status and active system agents.
